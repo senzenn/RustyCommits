@@ -1,6 +1,28 @@
 [package]
 name = "rusty-commit"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
 
+
+
+
+
+
+# Add authors, description, and other metadata
+authors = ["senzenn"]
+description = "A library to automate commit messages using OpenRouter API"
+license = "MIT OR Apache-2.0"
+
+# Add dependencies
 [dependencies]
+git2 = "0.13"
+regex = "1"
+walkdir = "2"
+colored = "2"
+reqwest = { version = "0.11", features = ["json"] }
+serde_json = "1"
+dotenv = "0.15"
+clap = { version = "4", features = ["derive"] }
+tokio = { version = "1", features = ["full"] }
+indicatif = "0.16"
+dialoguer = "0.9"
