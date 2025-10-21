@@ -1,4 +1,3 @@
-use std::fmt;
 use thiserror::Error;
 
 #[derive(Debug, Error)]
@@ -7,4 +6,8 @@ pub enum CommitError {
     OpenRouterApiFail,
     #[error("Invalid response from OpenRouter API")]
     InvalidResponse,
+    #[error("HTTP request failed: {0}")]
+    HttpError(#[from] reqwest::Error),
+    #[error("JSON parsing failed: {0}")]
+    JsonError(#[from] serde_json::Error),
 }
