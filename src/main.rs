@@ -21,5 +21,25 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         }
     }
 
-    // BUG: file  is not opneing ????????? why
+    // BUG: file  is not opneing ?????????
+    // FIXME: try changing diff instead of git2 or manual crate  >>>
+
+    if changed_files.is_empty() {
+        println!("NO changes to commit . Exiting ");
+        return Ok(());
+    }
+
+    let commit_message =
+    // functionn call  goes here  -> 
+        match generate_commit_message_openrouter(&repo, &changed_files, &api_key).await {
+            Ok(message) => message,
+            Err(_) => {
+                println!("Open Router API failed using fallback commit message✌️😏".blue());
+                //FIXME: use algo to get the fallback message and change this static message into meaning mearningful
+                "Fallback commit message".to_string().yellow()
+            }
+        };
+    // final message
+
+    println!("⚡️Generated commit message : {}", commit_message.green());
 }
