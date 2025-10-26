@@ -1,8 +1,8 @@
-use git2::Repository;
-use std::env;
 use colored::Colorize;
+use git2::Repository;
 use rusty_commit::api::openrouter::generate_commit_message_openrouter;
 use rusty_commit::utils::env_variable::prompt_and_save_env_variable;
+use std::env;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {

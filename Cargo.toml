@@ -7,7 +7,7 @@ edition = "2021"
 
 #
 # [[bin]]
-#
+# maybe i will add some bin here  actually i have  it's down there 
 # name = "rusty-commit"
 # path = "src/main.rs"
 # Add authors, description, and other metadata
@@ -15,21 +15,29 @@ authors = ["senzenn"]
 description = "A library to automate commit messages using OpenRouter API"
 license = "MIT OR Apache-2.0"
 
+
 # Add dependencies
 [dependencies]
 
-git2 = "0.13"
+git2 = "0.20.2"
 regex = "1"
 walkdir = "2"
-colored = "2"
-reqwest = { version = "0.11", features = ["json"] }
+colored = "3.0.0"
+reqwest = { version = "0.12.24", features = ["json"] }
 serde_json = "1"
 dotenv = "0.15"
 clap = { version = "4", features = ["derive"] }
 tokio = { version = "1", features = ["full"] }
-indicatif = "0.16"
+indicatif = "0.18.1"
 tokio-util = { version = "0.7", features = ["full"] }
 dialoguer = { version = "0.12.0" }
 thiserror = "2.0.17"
-which = "6.0"
-dirs = "5.0"
+which = "8.0.0"
+dirs = "6.0.0"
+toml="0.9.8"
+
+
+[[bin]]
+name = "rusty-commit"
+path = "src/main.rs"
+
