@@ -1,8 +1,9 @@
 use dialoguer::Input;
-use std::io::{self, Write};
+use std::io::Write;
 use which::which;
+use crate::errors::Result;
 
-pub fn prompt_and_save_env_variable(key: &str, prompt_message: &str) -> io::Result<String> {
+pub fn prompt_and_save_env_variable(key: &str, prompt_message: &str) -> Result<String> {
     let variable = Input::<String>::new()
         .with_prompt(prompt_message)
         .interact()?;
@@ -23,7 +24,7 @@ fn get_shell() -> String {
     }
 }
 
-fn save_env_variable(shell: &str, key: &str, value: &str) -> io::Result<()> {
+fn save_env_variable(shell: &str, key: &str, value: &str) -> Result<()> {
     let home_dir = dirs::home_dir().expect("Failed to get home directory");
     let config_file_path = if shell == "zsh" {
         home_dir.join(".zshrc")
